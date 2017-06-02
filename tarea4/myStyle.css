@@ -1,0 +1,18 @@
+body {
+         margin-right: 350px;
+      }
+      .designer{
+        padding: 30px;
+       
+        width: 300px;
+        height: 100vh;
+        background-color: #EEE;
+        z-index: 1;
+        border: 1px solid #CCC;
+        position: fixed;
+        right: 0;
+        top: 0;
+      }
+      .tamano{
+        font-size: 10px;
+      }
