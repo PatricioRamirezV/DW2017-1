@@ -1,0 +1,50 @@
+{% extends "menu.html" %}
+{% load thumbnail %}
+{% load static %}
+
+  {% block title %}Contacto{% endblock %}
+  {% block content %}
+
+	<section>
+		<div class="container">
+			<div class="col-lg-3 col-xs-12">
+				{% thumbnail contacto.imagen "400x400" crop="center" as im %} 
+		        <img style="width:100%" src="{{im.url}}" />
+				{% endthumbnail %}
+			</div>
+			<div class="col-lg-4 col-xs-12">
+				<h3>Información de contacto</h3>
+				<ul>
+					<li><label>Nombre: </label> {{contacto.nombre}} {{contacto.apellido}}</li>
+					<li><label>Email: </label><a href="#"> {{contacto.email}}</a></li>
+					<li><label>Teléfono: </label> {{contacto.telefono}}</li>
+					<li><label>Dirección: </label> {{contacto.direccion}}</li>
+				</ul>
+				<h3>Formulario de contacto</h3>
+				<div class="form-group">
+			      <label for="usr">Nombre</label>
+			      <input placeholder="Nombre" type="text" class="form-control" id="usr">
+			    </div>
+				<div class="form-group">
+			      <label for="usr">Email address</label>
+			      <input placeholder="Email" type="text" class="form-control" id="usr">
+			    </div>
+			    <div class="form-group">
+					<textarea placeholder="Comentario" class="form-control" rows="5" id="comment"></textarea>
+				</div>
+				<p class="text-right"><button class="btn btn-success">Enviar</button></p>
+			</div>
+			<div class="col-lg-5 col-xs-12">
+				<iframe
+				  width="100%"
+				  height="400"
+				  style="border:0"
+				  class="embed-responsive-item"
+				  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAi7YR5cam06yZM9-Gtegf_3h9W1ZKDHdY&q={{direccion}}" allowfullscreen>
+				</iframe>
+			</div>
+		</div>
+	</section>
+
+
+  {% endblock %}

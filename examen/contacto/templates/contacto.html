@@ -1,0 +1,56 @@
+{% extends "menu.html" %}
+{% load static %}
+
+  {% block title %}Contactos{% endblock %}
+  {% block content %}
+	<style>
+		.titulo{
+			display: inline;
+			font-family: Arial;
+		}
+		#icinf{
+			color: gray;
+		}
+	</style>
+
+	<section>
+		<div class="container">
+
+			<div class="row">
+				<img src="http://placehold.it/1400x200" alt="" class="img-thumbnail">
+			</div>
+			<div class="row">
+				<h2 class="titulo">Contactos </h2>
+				<h4 class="titulo" id="icinf">ICINF</h4>
+			</div>
+			<div class="row">
+				<table class="table">
+					<thead>
+						<tr>
+						    <th>#</th>
+						    <th>Nombre</th>
+						    <th>Apellido</th>
+						    <th>Teléfono</th>
+						    <th>Acción</th>
+						  </tr>
+					</thead>
+					<tbody>
+					{% for contacto in contactos %}
+					  <tr>
+					  	<td>{{contacto.id}}</td>
+					  	<td>{{contacto.nombre}}</td>
+					  	<td>{{contacto.apellido}}</td>
+					  	<td>{{contacto.telefono}}</td>
+					  	<td>
+					  		<a class="btn btn-info" href="{% url 'detalle_contacto' contacto.id %}">> Ver detalle</a>
+					  	</td>
+					  </tr>
+					{% endfor %}  
+					 </tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+	
+
+  {% endblock %}
